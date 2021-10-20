@@ -1,9 +1,9 @@
 import 'dotenv/config';
 
-import http from 'http'
+import cors from 'cors';
 import express, { json } from 'express';
-import cors from 'cors'
-import { Server } from 'socket.io'
+import http from 'http';
+import { Server } from 'socket.io';
 
 import { routes } from './routes';
 
@@ -16,7 +16,7 @@ app.use(routes);
 
 app.get('/auth/github', (_, response) => {
   response.redirect(
-    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_OAUTH_CLIENT_ID}`,
+    `https://github.com/login/oauth/authorize?client_id=${process.env.GITHUB_OAUTH_CLIENT_ID}`
   );
 });
 
@@ -30,7 +30,7 @@ const httpServer = http.createServer(app);
 const io = new Server(httpServer, {
   cors: {
     origin: '*',
-  }
+  },
 });
 
 export { httpServer, io };

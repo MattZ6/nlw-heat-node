@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { AuthenticateUserWithGithubService } from '../services/AuthenticateUserWithGithubService';
+import { AuthenticateUserWithGithubService } from '@services/AuthenticateUserWithGithubService';
 
 export class AuthenticateUserWithGithubController {
   async handle(request: Request, response: Response): Promise<Response> {

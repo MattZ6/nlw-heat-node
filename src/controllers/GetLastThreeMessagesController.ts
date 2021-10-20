@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 
-import { GetLastThreeMessagesService } from '../services/GetLastThreeMessagesService';
+import { GetLastThreeMessagesService } from '@services/GetLastThreeMessagesService';
 
 export class GetLastThreeMessagesController {
   async handle(_: Request, response: Response) {

@@ -4,7 +4,7 @@ import prismaClient from '../prisma';
 type Request = {
   text: string;
   user_id: string;
-}
+};
 
 export class CreateMessageService {
   async execute(data: Request) {

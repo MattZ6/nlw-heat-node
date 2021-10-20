@@ -9,7 +9,7 @@ export class GetLastThreeMessagesService {
       },
       include: {
         user: true,
-      }
+      },
     });
 
     return messages;

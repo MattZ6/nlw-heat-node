@@ -1,8 +1,8 @@
-import prismaClient from "../prisma"
+import prismaClient from '../prisma';
 
 type Request = {
   user_id: string;
-}
+};
 
 export class GetUserProfileService {
   async execute(data: Request) {
@@ -11,7 +11,7 @@ export class GetUserProfileService {
     const user = await prismaClient.user.findFirst({
       where: {
         id: user_id,
-      }
+      },
     });
 
     return user;

@@ -6,7 +6,15 @@
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "skipLibCheck": true,
-    "typeRoots": ["./src/@types", "node_modules/@types"]
+    "typeRoots": ["./src/@types", "node_modules/@types"],
+    "baseUrl": "./src",
+    "paths": {
+      "@config/*": ["config/*"],
+      "@controllers/*": ["controllers/*"],
+      "@middlewares/*": ["middlewares/*"],
+      "@services/*": ["services/*"]
+    },
+    "resolveJsonModule": true,
   },
   "exclude": [
     "node_modules",

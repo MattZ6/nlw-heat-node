@@ -5,19 +5,19 @@ import prismaClient from '../prisma';
 
 type Request = {
   code: string;
-}
+};
 
 type GithubOAuthLoginResponse = {
   access_token: string;
   type: string;
-}
+};
 
 type GithubApiUserResponse = {
   id: number;
   login: string;
   name: string;
   avatar_url: string;
-}
+};
 
 export class AuthenticateUserWithGithubService {
   async execute(request: Request) {
@@ -32,30 +32,33 @@ export class AuthenticateUserWithGithubService {
         code,
       },
       headers: {
-        "Accept": "application/json"
+        Accept: 'application/json',
       },
     });
 
     const { access_token } = data;
 
-    const response = await axios.get<GithubApiUserResponse>('https://api.github.com/user', {
-      headers: {
-        Authorization: `Bearer ${access_token}`,
-      },
-    });
+    const response = await axios.get<GithubApiUserResponse>(
+      'https://api.github.com/user',
+      {
+        headers: {
+          Authorization: `Bearer ${access_token}`,
+        },
+      }
+    );
 
     const { id: github_id, login, name, avatar_url } = response.data;
 
     let user = await prismaClient.user.findFirst({ where: { github_id } });
 
     if (!user) {
-      user = await  prismaClient.user.create({
+      user = await prismaClient.user.create({
         data: {
           login,
           name,
           github_id,
           avatar_url,
-        }
+        },
       });
     }
 

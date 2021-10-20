@@ -6,6 +6,8 @@
     "email": "matt_z6@hotmail.com",
     "url": "https://github.com/mattz6"
   },
+  "repository": "https://github.com/MattZ6/nlw-heat-node",
+  "bugs": "https://github.com/MattZ6/nlw-heat-node/issues",
   "scripts": {
     "dev": "tsnd --exit-child ./src"
   },

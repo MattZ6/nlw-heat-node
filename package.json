@@ -9,7 +9,7 @@
   "repository": "https://github.com/MattZ6/nlw-heat-node",
   "bugs": "https://github.com/MattZ6/nlw-heat-node/issues",
   "scripts": {
-    "dev": "tsnd --exit-child ./src"
+    "dev": "tsnd -r tsconfig-paths/register --exit-child ./src"
   },
   "dependencies": {
     "@prisma/client": "3.2.1",
